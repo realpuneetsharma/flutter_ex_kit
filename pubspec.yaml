@@ -1,7 +1,7 @@
 name: flutter_ex_kit
 description: "Ex Kit Flutter is a powerful and easy-to-use collection of extensions and utility functions designed to enhance your Flutter development experience."
 version: 0.0.1
-homepage:
+homepage: https://github.com/Puneetsharma5525/flutter_ex_kit.git
 
 environment:
   sdk: ^3.5.3
