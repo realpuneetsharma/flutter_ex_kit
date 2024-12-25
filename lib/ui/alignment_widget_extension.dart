@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../flutter_ex_kit.dart';
 
 /// Extension methods for aligning a widget within a parent widget.
 ///

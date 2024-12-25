@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../flutter_ex_kit.dart';
 
 // A StatefulWidget that allows for a slide-up animation for its child widget.
 class BottomAnimation extends StatefulWidget {

@@ -20,6 +20,6 @@ To use `flutter_ex_kit` in your Flutter project, add it as a dependency in your 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_ex_kit: ^1.0.0
+  flutter_ex_kit: ^0.0.2
 
 flutter pub get
