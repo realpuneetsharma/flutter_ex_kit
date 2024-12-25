@@ -37,7 +37,8 @@ void exitApp({
   DateTime now = DateTime.now();
 
   // If it's been more than 2 seconds since the last press
-  if (currentBackPressTime == null || now.difference(currentBackPressTime) > const Duration(seconds: 2)) {
+  if (currentBackPressTime == null ||
+      now.difference(currentBackPressTime) > const Duration(seconds: 2)) {
     // Update the time of the last press
     currentBackPressTime = now;
 
@@ -45,7 +46,7 @@ void exitApp({
     if (exit != null) {
       exit.call();
     } else {
-      notExit?.call();  // Calls the notExit callback if provided
+      notExit?.call(); // Calls the notExit callback if provided
     }
   } else {
     // Exit the app if the second press is within 2 seconds

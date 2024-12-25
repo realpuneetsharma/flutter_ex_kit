@@ -30,8 +30,8 @@ extension Pad on num {
   /// 40.height // Creates a SizedBox with a height of 40.0
   /// ```
   SizedBox get height => SizedBox(
-    height: toDouble(),
-  );
+        height: toDouble(),
+      );
 
   /// Creates a [SizedBox] with the specified width.
   ///
@@ -42,6 +42,6 @@ extension Pad on num {
   /// 50.width // Creates a SizedBox with a width of 50.0
   /// ```
   SizedBox get width => SizedBox(
-    width: toDouble(),
-  );
+        width: toDouble(),
+      );
 }

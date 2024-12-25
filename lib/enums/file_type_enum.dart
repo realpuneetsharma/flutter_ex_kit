@@ -1,4 +1,5 @@
 part of '../flutter_ex_kit.dart';
+
 enum FileTypeEnum {
   jpg("jpg"),
   jpeg("jpeg"),
@@ -16,7 +17,7 @@ enum FileTypeEnum {
 
   static FileTypeEnum fromString(String type) {
     return FileTypeEnum.values.firstWhere(
-          (e) => e.value == type,
+      (e) => e.value == type,
       orElse: () => throw ArgumentError("Invalid FileType: $type"),
     );
   }

@@ -1,6 +1,5 @@
 part of '../flutter_ex_kit.dart';
 
-
 /// An extension on the String class to convert hex color codes to Flutter's [Color] object.
 ///
 /// This extension allows you to easily convert a string representing a hex color code

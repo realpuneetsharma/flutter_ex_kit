@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 /// Extension methods for aligning a widget within a parent widget.
 ///
 /// This extension adds multiple alignment helper methods to the [Widget] class, making it easier
@@ -9,7 +10,6 @@ import 'package:flutter/material.dart';
 /// parent. Additionally, optional width and height parameters are available to control the size of
 /// the widget during alignment.
 extension AlignmentWidgetExtension on Widget {
-
   /// Aligns the widget to the top-left corner of its parent container.
   /// Optionally, width and height can be provided to constrain the widget's size.
   ///

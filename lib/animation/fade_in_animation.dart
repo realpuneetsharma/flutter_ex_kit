@@ -60,10 +60,11 @@ class _FadeInAniState extends State<FadeInAni> with TickerProviderStateMixin {
     );
 
     // Define the sliding animation using Tween and animate based on controller.
-    inAnimation = Tween<double>(begin: -widget.fadeOffset, end: 0).animate(controller)
-      ..addListener(() {
-        setState(() {});
-      });
+    inAnimation =
+        Tween<double>(begin: -widget.fadeOffset, end: 0).animate(controller)
+          ..addListener(() {
+            setState(() {});
+          });
 
     // Define the opacity animation, starting from 0 (invisible) and ending at 1 (fully visible).
     opacityAnimation = Tween<double>(begin: 0, end: 1).animate(controller)
@@ -80,14 +81,18 @@ class _FadeInAniState extends State<FadeInAni> with TickerProviderStateMixin {
     // Apply the animation transformations: translate and fade.
     return Transform.translate(
       offset: switch (widget.direction) {
-        FadeInDirection.ltr => Offset(inAnimation.value, 0),   // Move from left to right
-        FadeInDirection.rtl => Offset(-inAnimation.value, 0),  // Move from right to left
-        FadeInDirection.ttb => Offset(0, inAnimation.value),   // Move from top to bottom
-        FadeInDirection.btt => Offset(0, 0 - inAnimation.value), // Move from bottom to top
+        FadeInDirection.ltr =>
+          Offset(inAnimation.value, 0), // Move from left to right
+        FadeInDirection.rtl =>
+          Offset(-inAnimation.value, 0), // Move from right to left
+        FadeInDirection.ttb =>
+          Offset(0, inAnimation.value), // Move from top to bottom
+        FadeInDirection.btt =>
+          Offset(0, 0 - inAnimation.value), // Move from bottom to top
       },
       child: Opacity(
-        opacity: opacityAnimation.value,  // Apply fade-in effect
-        child: widget.child,              // Display the animated widget
+        opacity: opacityAnimation.value, // Apply fade-in effect
+        child: widget.child, // Display the animated widget
       ),
     );
   }

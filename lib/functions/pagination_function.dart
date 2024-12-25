@@ -33,7 +33,7 @@ void paginationFunction({
   required ScrollController controller,
 }) {
   controller.addListener(
-        () {
+    () {
       if (controller.position.maxScrollExtent == controller.offset) {
         fun.call();
       }

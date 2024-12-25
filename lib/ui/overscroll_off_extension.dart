@@ -31,14 +31,15 @@ class _OverScrollOff extends StatelessWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) => NotificationListener<OverscrollIndicatorNotification>(
-    onNotification: (overscroll) {
-      // Disable the overscroll indicator.
-      overscroll.disallowIndicator();
-      return true;
-    },
-    child: child,
-  );
+  Widget build(BuildContext context) =>
+      NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (overscroll) {
+          // Disable the overscroll indicator.
+          overscroll.disallowIndicator();
+          return true;
+        },
+        child: child,
+      );
 }
 
 /// Extension on [SingleChildScrollView] to prevent the overscroll indicator from appearing.
