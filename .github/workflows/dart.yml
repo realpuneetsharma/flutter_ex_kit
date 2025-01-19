@@ -1,7 +1,5 @@
-# Workflow Name
 name: "Dart"
 
-# Workflow Triggers
 on:
   push:
     branches:
@@ -9,37 +7,34 @@ on:
   pull_request:
     branches:
       - master
-  workflow_dispatch: # Enable manual triggering
+  workflow_dispatch:
 
-# Jobs
 jobs:
   build:
     name: Build & Release
     runs-on: windows-latest
 
     steps:
-      # Step 1: Check out the code
       - uses: actions/checkout@v3
 
-      # Step 2: Set up Flutter environment
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.27.1" # Use your current Flutter version
+          flutter-version: ${{ env.FLUTTER_VERSION || 'stable' }}
           channel: "stable"
 
-      # Step 3: Install dependencies
+      - run: flutter doctor -v
+
       - run: flutter pub get
 
-      # Step 4: Run tests and generate coverage
       - run: flutter test --coverage
 
-      # Step 5: Create Release
+      - run: npm install
+
       - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: npx semantic-release@24.2.1
+        run: npx semantic-release
 
-      # Step 6: Upload coverage to Codecov
       - uses: codecov/codecov-action@v1.0.7
         with:
           tag: v0.0.${{ github.run_number }}
