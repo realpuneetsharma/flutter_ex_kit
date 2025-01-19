@@ -40,16 +40,6 @@ jobs:
           # Explicitly specify the path to your project directory, considering Windows file system conventions
           tar -czvf my_project.tar.gz -C D:/a/flutter_ex_kit/flutter_ex_kit .
 
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v0.0.${{ github.run_number }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
       - name: Upload tar.gz to Release
         uses: actions/upload-release-asset@v1
         env:
