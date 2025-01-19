@@ -1,5 +1,5 @@
 # Workflow Name
-name: "Dart"
+name: "Dart CI/CD"
 
 # Workflow Triggers
 on:
@@ -19,25 +19,32 @@ jobs:
 
     steps:
       # Step 1: Check out the code
-      - uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
       # Step 2: Set up Flutter environment
-      - uses: subosito/flutter-action@v2
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.27.1" # Use your current Flutter version
+          flutter-version: "3.27.1"
           channel: "stable"
 
       # Step 3: Install dependencies
-      - run: flutter pub get
+      - name: Install Dependencies
+        run: flutter pub get
 
       # Step 4: Run tests and generate coverage
-      - run: flutter test --coverage
+      - name: Run Tests and Generate Coverage
+        run: flutter test --coverage
 
-      - name: Create Release
-        run: npx semantic-release@^17.3
+      # Step 5: Create Release
+      - name: Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release@latest
 
       # Step 6: Upload coverage to Codecov
-      - uses: codecov/codecov-action@v1.0.7
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v3
         with:
-          tag: v1.0.${{ github.run_number }}
           token: ${{ secrets.TOKEN }}
