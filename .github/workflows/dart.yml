@@ -19,7 +19,7 @@ jobs:
 
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: ${{ env.FLUTTER_VERSION || 'stable' }}
+          flutter-version: "3.27.1" # Use your current Flutter version
           channel: "stable"
 
       - run: flutter doctor -v
