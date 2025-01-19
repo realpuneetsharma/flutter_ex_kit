@@ -37,7 +37,7 @@ jobs:
       - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: npx semantic-release@latest
+        run: npx semantic-release@23.0.0
 
       # Step 6: Upload coverage to Codecov
       - uses: codecov/codecov-action@v1.0.7
