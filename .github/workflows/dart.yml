@@ -28,15 +28,28 @@ jobs:
 
       - run: flutter test --coverage
 
-      - run: npm install
+      - name: Create tar.gz archive
+        run: |
+          mkdir -p dist 
+          cd dist
+          tar -czvf my_project.tar.gz ../path/to/your/project 
 
-      - name: Semantic Release
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: npx semantic-release
-
-      - uses: codecov/codecov-action@v1.0.7
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag: v0.0.${{ github.run_number }}
+          tag_name: v0.0.${{ github.run_number }}
           release_name: Release ${{ github.ref }}
-          token: ${{ secrets.TOKEN }}
+          draft: false
+          prerelease: false
+
+      - name: Upload tar.gz to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: dist/my_project.tar.gz
+          asset_name: my_project.tar.gz
+          asset_content_type: application/gzip
