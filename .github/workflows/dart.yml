@@ -30,9 +30,11 @@ jobs:
 
       - name: Create tar.gz archive
         run: |
-          mkdir -p dist 
+          mkdir dist # Create the dist directory
           cd dist
-          tar -czvf my_project.tar.gz ../path/to/your/project 
+          # Create the tar.gz archive from the assets folder in your project directory
+          tar -czvf my_project.tar.gz -C /flutter_ex_kit assets
+      
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
