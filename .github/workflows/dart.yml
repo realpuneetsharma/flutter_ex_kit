@@ -15,26 +15,30 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - uses: subosito/flutter-action@v2
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.27.1" # Use your current Flutter version
           channel: "stable"
 
-      - run: flutter doctor -v
+      - name: Run flutter doctor
+        run: flutter doctor -v
 
-      - run: flutter pub get
+      - name: Install dependencies
+        run: flutter pub get
 
-      - run: flutter test --coverage
+      - name: Run tests
+        run: flutter test --coverage
 
       - name: Create tar.gz archive
         run: |
           mkdir dist # Create the dist directory
           cd dist
-          # Create the tar.gz archive from the assets folder in your project directory
-          tar -czvf my_project.tar.gz -C /flutter_ex_kit assets
-      
+          # Explicitly specify the path to your project directory, considering Windows file system conventions
+          tar -czvf my_project.tar.gz -C D:/a/flutter_ex_kit/flutter_ex_kit .
 
       - name: Create GitHub Release
         uses: actions/create-release@v1
