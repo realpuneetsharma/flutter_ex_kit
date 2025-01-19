@@ -37,13 +37,19 @@ jobs:
       - name: Run Tests and Generate Coverage
         run: flutter test --coverage
 
-      # Step 5: Create Release
+      # Step 5: Set up Node.js (latest version)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.12.1'
+
+      # Step 6: Create Release
       - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release@latest
 
-      # Step 6: Upload coverage to Codecov
+      # Step 7: Upload coverage to Codecov
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
