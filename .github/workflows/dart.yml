@@ -1,42 +1,40 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+# Workflow Name
+name: "Dart"
 
-name: Dart
-
+# Workflow Triggers
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
+  workflow_dispatch: # Enable manual triggering
 
+# Jobs
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Build & Release
+    runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      # Step 1: Check out the code
+      - uses: actions/checkout@v3
 
-      # Note: This workflow uses the latest stable version of the Dart SDK.
-      # You can specify other versions if desired, see documentation here:
-      # https://github.com/dart-lang/setup-dart/blob/main/README.md
-      # - uses: dart-lang/setup-dart@v1
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+      # Step 2: Set up Flutter environment
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.27.1" # Use your current Flutter version
+          channel: "stable"
 
-      - name: Install dependencies
-        run: dart pub get
+      # Step 3: Install dependencies
+      - run: flutter pub get
 
-      # Uncomment this step to verify the use of 'dart format' on each commit.
-      # - name: Verify formatting
-      #   run: dart format --output=none --set-exit-if-changed .
+      # Step 4: Run tests and generate coverage
+      - run: flutter test --coverage
 
-      # Consider passing '--fatal-infos' for slightly stricter analysis.
-      - name: Analyze project source
-        run: dart analyze
-
-      # Your project will need to have tests in test/ and a dependency on
-      # package:test for this step to succeed. Note that Flutter projects will
-      # want to change this to 'flutter test'.
-      - name: Run tests
-        run: dart test
+      # Step 5: Upload coverage to Codecov
+      - uses: codecov/codecov-action@v1.0.7
+        with:
+          tag: v1.0.${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}

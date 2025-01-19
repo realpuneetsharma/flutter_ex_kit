@@ -9,3 +9,7 @@
 ## 0.0.3
 
 * Updated the `pubspec.yaml` file with versioning, repository information, documentation URL, and license details.
+
+## 0.0.4
+
+* add example
