@@ -1,6 +1,6 @@
 part of '../flutter_ex_kit.dart';
 
-enum FileTypeEnum {
+enum FileTypeFroImageEnum {
   jpg("jpg"),
   jpeg("jpeg"),
   png("png"),
@@ -10,13 +10,13 @@ enum FileTypeEnum {
 
   final String value;
 
-  const FileTypeEnum(this.value);
+  const FileTypeFroImageEnum(this.value);
 
   @override
   String toString() => value;
 
-  static FileTypeEnum fromString(String type) {
-    return FileTypeEnum.values.firstWhere(
+  static FileTypeFroImageEnum fromString(String type) {
+    return FileTypeFroImageEnum.values.firstWhere(
       (e) => e.value == type,
       orElse: () => throw ArgumentError("Invalid FileType: $type"),
     );

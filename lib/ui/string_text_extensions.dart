@@ -69,6 +69,7 @@ extension StringTextExtensions on String {
     TextOverflow? overflow,
     TextAlign? textAlign,
     String? fontFamily,
+    TextScaler? textScaler,
   }) =>
       Text(
         this,
@@ -83,6 +84,7 @@ extension StringTextExtensions on String {
           decoration: decoration,
         ),
         maxLines: maxLines,
+        textScaler: textScaler,
         overflow: overflow,
         textAlign: textAlign,
       );

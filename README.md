@@ -21,5 +21,45 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_ex_kit: ^0.0.2
-
+```
+```yaml
 flutter pub get
+```
+
+## Example Refactoring
+
+**Before using** `flutter_ex_kit`
+
+In the traditional approach, you would write the code as follows:
+
+dart
+```
+SizedBox(
+  height: 10,
+),
+
+```
+
+**After using** `flutter_ex_kit`
+
+With the `flutter_ex_kit` package, you can simplify this code:
+
+dart
+```
+10.height,
+```
+
+## Documentation
+
+For more detailed examples, advanced features, and in-depth documentation on how to use `flutter_ex_kit`, please refer to the full documentation:
+
+[Read Full Documentation](https://realpuneetsharma.blogspot.com/blog-post_18)
+
+## 🚀 About Me
+I am Puneet Sharma, and I am a developer.
+
+## License
+
+[MIT](https://github.com/realpuneetsharma/flutter_ex_kit/blob/master/LICENSE)
+
+

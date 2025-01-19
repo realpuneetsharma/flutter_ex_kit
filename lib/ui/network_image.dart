@@ -47,7 +47,7 @@ extension NetworkImageExt on String? {
       );
     } else if (this != null &&
         this?.isNotEmpty == true &&
-        this!.endsWith('.${FileTypeEnum.svg}')) {
+        this!.endsWith('.${FileTypeFroImageEnum.svg}')) {
       return svgImage ?? const SizedBox.shrink();
     }
 
@@ -56,8 +56,8 @@ extension NetworkImageExt on String? {
 }
 
 bool allImages(String image) =>
-    image.endsWith('.${FileTypeEnum.png}') ||
-    image.endsWith('.${FileTypeEnum.jpg}') ||
-    image.endsWith('.${FileTypeEnum.jpeg}') ||
-    image.endsWith('.${FileTypeEnum.webp}') ||
-    image.endsWith('.${FileTypeEnum.gif}');
+    image.endsWith('.${FileTypeFroImageEnum.png}') ||
+    image.endsWith('.${FileTypeFroImageEnum.jpg}') ||
+    image.endsWith('.${FileTypeFroImageEnum.jpeg}') ||
+    image.endsWith('.${FileTypeFroImageEnum.webp}') ||
+    image.endsWith('.${FileTypeFroImageEnum.gif}');

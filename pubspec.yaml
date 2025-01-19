@@ -1,22 +1,27 @@
 name: flutter_ex_kit
 description: "Ex Kit Flutter is a powerful and easy-to-use collection of extensions and utility functions designed to enhance your Flutter development experience."
 version: 0.0.2
-repository: https://github.com/Puneetsharma5525/flutter_ex_kit.git  # Corrected repository URL field
+repository: https://github.com/realpuneetsharma/flutter_ex_kit.git
+issue_tracker: https://github.com/realpuneetsharma/flutter_ex_kit/issues
+homepage: https://realpuneetsharma.blogspot.com
+documentation: https://realpuneetsharma.blogspot.com/blog-post_18
+topics: [flutter, extensions, utilities, development]
+funding: [https://github.com/sponsors/realpuneetsharam]
+license: MIT
+
 
 environment:
-  sdk: ">=3.5.3 <4.0.0"  # Compatible with Dart 3.5.3 and later, but restricts to 3.x.x
-  flutter: ">=1.17.0"  # Flutter version 1.17.0 and up
+  sdk: ">=3.5.3 <4.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
-    sdk: flutter  # Flutter SDK dependency
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
-    sdk: flutter  # Flutter testing package
-  flutter_lints: ^4.0.0  # Linting dependency
+    sdk: flutter
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-flutter:
+screenshots:
+  - description: The flutter ex kit package logo.
+    path: screenshots/logo.png

@@ -7,7 +7,7 @@ part of '../flutter_ex_kit.dart';
 ///
 /// Example usage:
 /// ```dart
-/// // Create a SizedBox with a height of 20.0
+///  Create a SizedBox with a height of 20.0
 /// 20.height
 ///
 /// // Create a SizedBox with a width of 30.0
