@@ -10,7 +10,7 @@
 
 * Updated the `pubspec.yaml` file with versioning, repository information, documentation URL, and license details.
 
-## 0.0.4
+## 0.0.5
 
 - Implemented input validation for strings and integers.
 - Added string and integer extension.
