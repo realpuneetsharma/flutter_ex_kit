@@ -12,4 +12,7 @@
 
 ## 0.0.4
 
-* add example
+- Implemented input validation for strings and integers.
+- Added string and integer extension.
+- Improved media query handling for better responsiveness.
+- Enhanced documentation with better explanations and examples.

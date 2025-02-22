@@ -1,13 +1,9 @@
 part of '../flutter_ex_kit.dart';
 
-/// A global variable to store the default font family.
-/// This value can be changed throughout the app to apply a consistent font family to all text widgets.
-String globalFontFamily = '';
-
 /// Extension on the `String` class to provide a convenient method for creating styled [Text] widgets.
 ///
-/// This extension allows any [String] to be easily converted into a [Text] widget with a variety of styling options.
-/// You can customize text appearance such as color, font size, weight, decoration, and alignment.
+/// This extension allows any [String] to be easily converted into a [Text] widget with various styling options.
+/// You can customize text appearance such as color, font size, weight, decoration, alignment, and more.
 ///
 /// Example usage:
 /// ```dart
@@ -18,74 +14,131 @@ String globalFontFamily = '';
 ///   textAlign: TextAlign.center,
 /// );
 /// ```
-///
-/// Parameters:
-/// - [color]: The color of the text.
-/// - [fontSize]: The size of the font.
-/// - [decorationThickness]: The thickness of the text decoration (e.g., underline).
-/// - [height]: The line height of the text.
-/// - [fontWeight]: The weight of the font (e.g., bold).
-/// - [decorationStyle]: The style of the text decoration (e.g., dashed underline).
-/// - [decoration]: The type of text decoration (e.g., underline, strike-through).
-/// - [maxLines]: The maximum number of lines the text can span.
-/// - [overflow]: How to handle text overflow (e.g., ellipsis, fade).
-/// - [textAlign]: The alignment of the text (e.g., left, center, right).
-/// - [fontFamily]: The font family for the text; if not provided, defaults to [globalFontFamily].
 extension StringTextExtensions on String {
-  /// Creates a [Text] widget with the specified styling options.
+  /// Converts the string into a styled [Text] widget.
   ///
-  /// This method allows you to apply various styles to the text, including color, size, weight, decoration, and alignment.
+  /// This method provides a flexible way to style text directly from a [String].
+  /// It supports a wide range of text styling properties available in [TextStyle].
   ///
-  /// Example:
-  /// ```dart
-  /// 'Styled Text'.style(
-  ///   color: Colors.red,
-  ///   fontSize: 20.0,
-  ///   fontWeight: FontWeight.w500,
-  ///   textAlign: TextAlign.right,
-  /// );
-  /// ```
-  ///
-  /// [color] - The color of the text.
-  /// [fontSize] - The font size.
-  /// [decorationThickness] - Thickness of the text decoration.
-  /// [height] - The line height of the text.
-  /// [fontWeight] - The weight of the font.
-  /// [decorationStyle] - Style of the text decoration.
-  /// [decoration] - Type of text decoration.
-  /// [maxLines] - Maximum number of lines.
-  /// [overflow] - Handling of text overflow.
-  /// [textAlign] - Text alignment.
-  /// [fontFamily] - Font family; defaults to [globalFontFamily] if not provided.
+  /// ### Parameters:
+  /// - [key]: An optional key to uniquely identify this widget.
+  /// - [color]: The color of the text.
+  /// - [fontSize]: The size of the font.
+  /// - [fontWeight]: The weight of the font (e.g., bold).
+  /// - [fontFamily]: The font family for the text; if not provided, defaults to [globalFontFamily].
+  /// - [fontFamilyFallback]: A list of fallback font families.
+  /// - [fontStyle]: The style of the font (normal, italic).
+  /// - [letterSpacing]: The space between letters.
+  /// - [wordSpacing]: The space between words.
+  /// - [height]: The line height of the text.
+  /// - [textAlign]: The alignment of the text (left, center, right, etc.).
+  /// - [textDirection]: The direction of the text (LTR/RTL).
+  /// - [maxLines]: The maximum number of lines the text can span.
+  /// - [overflow]: Defines how the text should handle overflow.
+  /// - [textScaler]: Controls the scaling behavior of the text.
+  /// - [decoration]: The type of text decoration (underline, line-through, etc.).
+  /// - [decorationColor]: The color of the decoration.
+  /// - [decorationThickness]: The thickness of the decoration.
+  /// - [decorationStyle]: The style of the decoration (dashed, dotted, etc.).
+  /// - [backgroundColor]: The background color of the text.
+  /// - [foreground]: A paint object that replaces the text color.
+  /// - [background]: A paint object that replaces the background color.
+  /// - [shadows]: A list of shadows for the text.
+  /// - [textBaseline]: The baseline alignment of the text.
+  /// - [strutStyle]: Defines the minimum line height of the text.
+  /// - [textHeightBehavior]: Defines how the height of the text behaves.
+  /// - [textWidthBasis]: Defines whether the width is based on the longest or tightest line.
+  /// - [semanticsLabel]: A label for accessibility purposes.
+  /// - [softWrap]: Defines whether the text should break at soft line breaks.
+  /// - [selectionColor]: The color used when the text is selected.
+  /// - [leadingDistribution]: Defines how extra leading space is distributed.
+  /// - [inherit]: Whether to inherit styles from the parent text theme.
+  /// - [locale]: The locale used for text rendering.
+  /// - [debugLabel]: Debugging label for developers.
+  /// - [package]: The name of the package from which the font is loaded.
+  /// - [fontVariations]: Specifies font variations.
+  /// - [fontFeatures]: Defines OpenType font features.
   Widget style({
+    Key? key,
     Color? color,
     double? fontSize,
-    double? decorationThickness,
-    double? height,
     FontWeight? fontWeight,
-    TextDecorationStyle? decorationStyle,
-    TextDecoration? decoration,
+    String? fontFamily,
+    List<String>? fontFamilyFallback,
+    FontStyle? fontStyle,
+    double? letterSpacing,
+    double? wordSpacing,
+    double? height,
+    TextAlign? textAlign,
+    TextDirection? textDirection,
     int? maxLines,
     TextOverflow? overflow,
-    TextAlign? textAlign,
-    String? fontFamily,
     TextScaler? textScaler,
+    TextDecoration? decoration,
+    Color? decorationColor,
+    double? decorationThickness,
+    TextDecorationStyle? decorationStyle,
+    Color? backgroundColor,
+    Paint? foreground,
+    Paint? background,
+    List<Shadow>? shadows,
+    TextBaseline? textBaseline,
+    StrutStyle? strutStyle,
+    TextHeightBehavior? textHeightBehavior,
+    TextWidthBasis? textWidthBasis,
+    String? semanticsLabel,
+    bool? softWrap,
+    List<FontVariation>? fontVariations,
+    Locale? locale,
+    String? debugLabel,
+    String? package,
+    List<FontFeature>? fontFeatures,
+    Color? selectionColor,
+    bool inherit = false,
+    TextLeadingDistribution? leadingDistribution,
   }) =>
       Text(
         this,
+        key: key,
         style: TextStyle(
           color: color,
           fontSize: fontSize,
           fontWeight: fontWeight,
-          fontFamily: fontFamily ?? globalFontFamily,
+          fontFamily: fontFamily,
+          fontFamilyFallback: fontFamilyFallback,
+          fontStyle: fontStyle,
+          letterSpacing: letterSpacing,
+          wordSpacing: wordSpacing,
           height: height,
+          decoration: decoration,
+          decorationColor: decorationColor,
           decorationThickness: decorationThickness,
           decorationStyle: decorationStyle,
-          decoration: decoration,
+          backgroundColor: backgroundColor,
+          foreground: foreground,
+          background: background,
+          shadows: shadows,
+          textBaseline: textBaseline,
+          leadingDistribution: leadingDistribution,
+          debugLabel: debugLabel,
+          inherit: inherit,
+          locale: locale,
+          fontVariations: fontVariations,
+          fontFeatures: fontFeatures,
+          overflow: overflow,
+          package: package,
         ),
-        maxLines: maxLines,
-        textScaler: textScaler,
-        overflow: overflow,
         textAlign: textAlign,
+        textDirection: textDirection,
+        maxLines: maxLines,
+        overflow: overflow,
+        textScaler: textScaler,
+        strutStyle: strutStyle,
+        textHeightBehavior: textHeightBehavior,
+        textWidthBasis: textWidthBasis,
+        semanticsLabel: semanticsLabel,
+        softWrap: softWrap,
+        locale: locale,
+        selectionColor: selectionColor,
       );
 }

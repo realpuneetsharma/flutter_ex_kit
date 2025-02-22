@@ -53,13 +53,13 @@ dart
 
 For more detailed examples, advanced features, and in-depth documentation on how to use `flutter_ex_kit`, please refer to the full documentation:
 
-[Read Full Documentation](https://realpuneetsharma.blogspot.com/blog-post_18)
+[Read Full Documentation](https://iamapuneet.blogspot.com/blog-post_18)
 
 ## 🚀 About Me
 I am Puneet Sharma, and I am a developer.
 
 ## License
 
-[MIT](https://github.com/realpuneetsharma/flutter_ex_kit/blob/master/LICENSE)
+[MIT](https://github.com/iamapuneet/flutter_ex_kit/blob/master/LICENSE)
 
 

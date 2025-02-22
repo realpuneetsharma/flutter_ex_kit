@@ -52,17 +52,20 @@ extension ScaffoldExtensions on Scaffold {
     required Color statusBarColor,
     Color systemNavigationBarColor = Colors.white,
     Brightness statusBarIconBrightness = Brightness.light,
+    Color? systemNavigationBarDividerColor,
+    bool sized = true,
   }) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light.copyWith(
-        statusBarColor: statusBarColor,
-        statusBarIconBrightness: statusBarIconBrightness,
-        systemNavigationBarColor: systemNavigationBarColor,
-        statusBarBrightness: Brightness.light,
-        systemStatusBarContrastEnforced: true,
-        systemNavigationBarContrastEnforced: true,
-        systemNavigationBarIconBrightness: Brightness.dark,
-      ),
+          statusBarColor: statusBarColor,
+          statusBarIconBrightness: statusBarIconBrightness,
+          systemNavigationBarColor: systemNavigationBarColor,
+          statusBarBrightness: Brightness.light,
+          systemStatusBarContrastEnforced: true,
+          systemNavigationBarContrastEnforced: true,
+          systemNavigationBarIconBrightness: Brightness.dark,
+          systemNavigationBarDividerColor: systemNavigationBarDividerColor),
+      sized: true,
       child: this,
     );
   }

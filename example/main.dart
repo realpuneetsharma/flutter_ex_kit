@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ex_kit/flutter_ex_kit.dart';
+import 'package:flutter_ex_kit/number/int.dart';
 
 class FlutterExKitExample extends StatelessWidget {
   const FlutterExKitExample({super.key});
@@ -20,7 +21,13 @@ class FlutterExKitExample extends StatelessWidget {
         ).only(
           left: 10,
           right: 10,
-        )
+        ),
+
+        // Example of ordinal number usage
+        Text('22 in ordinal form: ${22.ordinal}'),
+
+        // Example of Roman numeral conversion
+        Text('12 in Roman numeral: ${12.roman}'),
       ],
     );
   }

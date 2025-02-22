@@ -7,11 +7,11 @@ part of '../flutter_ex_kit.dart';
 ///
 /// Example usage:
 /// ```dart
-///  Create a SizedBox with a height of 20.0
-/// 20.height
+/// // Create a SizedBox with a height of 20.0
+/// 20.height;
 ///
 /// // Create a SizedBox with a width of 30.0
-/// 30.width
+/// 30.width;
 /// ```
 ///
 /// The extension methods provided are:
@@ -27,7 +27,7 @@ extension Pad on num {
   ///
   /// Example:
   /// ```dart
-  /// 40.height // Creates a SizedBox with a height of 40.0
+  /// 40.height; // Creates a SizedBox with a height of 40.0
   /// ```
   SizedBox get height => SizedBox(
         height: toDouble(),
@@ -39,7 +39,7 @@ extension Pad on num {
   ///
   /// Example:
   /// ```dart
-  /// 50.width // Creates a SizedBox with a width of 50.0
+  /// 50.width; // Creates a SizedBox with a width of 50.0
   /// ```
   SizedBox get width => SizedBox(
         width: toDouble(),

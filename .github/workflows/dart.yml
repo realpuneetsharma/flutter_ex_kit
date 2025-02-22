@@ -1,4 +1,4 @@
-name: "Dart"
+name: "Dart & Flutter Flutter Ex Kit Plugin"
 
 on:
   push:
@@ -9,6 +9,9 @@ on:
       - master
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     name: Build & Release
@@ -18,27 +21,36 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "3.27.1" # Use your current Flutter version
-          channel: "stable"
-
-      - name: Run flutter doctor
-        run: flutter doctor -v
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Run tests
-        run: flutter test --coverage
-
       - name: Create tar.gz archive
         run: |
-          mkdir dist # Create the dist directory
-          cd dist
-          # Explicitly specify the path to your project directory, considering Windows file system conventions
-          tar -czvf my_project.tar.gz -C D:/a/flutter_ex_kit/flutter_ex_kit .
+          mkdir dist
+          tar -czvf dist/flutter_ex_kit.tar.gz -C "${{ github.workspace }}" .
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v0.0.${{ github.run_number }}
+          release_name: Release v0.0.${{ github.run_number }}
+          draft: false
+          makeLatest: true
+
+          body: |
+            🎉 **Flutter Ex Kit - Release v0.0.${{ github.run_number }}** 🎉
+
+            🔥 **What's New**:
+            - Implemented input validation for strings and integers.
+            - Added string and integer extensions.
+            - Improved media query handling for better responsiveness.
+            - Enhanced documentation with better explanations and examples.
+
+            📢 **Developed by:** Puneet Sharma  
+            🆔 **GitHub Id:** [@iamapuneet](https://github.com/iamapuneet)  
+            💼 **Project:** Flutter Ex Kit  
+
+            👉 **Download the latest release below!**
 
       - name: Upload tar.gz to Release
         uses: actions/upload-release-asset@v1
@@ -46,6 +58,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist/my_project.tar.gz
-          asset_name: my_project.tar.gz
+          asset_path: dist/flutter_ex_kit.tar.gz
+          asset_name: flutter_ex_kit.tar.gz
           asset_content_type: application/gzip

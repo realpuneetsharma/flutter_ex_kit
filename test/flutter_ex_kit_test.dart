@@ -1,3 +1,4 @@
+import 'package:flutter_ex_kit/flutter_ex_kit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -19,5 +20,5 @@ void main() {
   });
 
   // Optional: Run the function and print the result
-  print(add(2)); // This will print 3 in the console
+  output(add(2)); // This will print 3 in the console
 }
