@@ -29,4 +29,3 @@ extension MediaQuerysValues on BuildContext {
   /// Returns the bottom view inset (e.g., keyboard height).
   double get vIb => MediaQuery.of(this).viewInsets.bottom;
 }
-

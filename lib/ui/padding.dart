@@ -41,7 +41,8 @@ extension PaddingExtension on Widget {
     double bottom = 0.0,
   }) {
     return Padding(
-      padding: EdgeInsets.only(left: left, top: top, right: right, bottom: bottom),
+      padding:
+          EdgeInsets.only(left: left, top: top, right: right, bottom: bottom),
       child: this,
     );
   }

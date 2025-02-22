@@ -35,7 +35,7 @@ enum FileTypeForImageEnum {
   /// Throws an [ArgumentError] if the provided [type] is not valid.
   static FileTypeForImageEnum fromString(String type) {
     return FileTypeForImageEnum.values.firstWhere(
-          (e) => e.value == type,
+      (e) => e.value == type,
       orElse: () => throw ArgumentError("Invalid FileType: $type"),
     );
   }
