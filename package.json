@@ -1,6 +1,6 @@
 {
   "name": "flutter_ex_kit",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "`flutter_ex_kit` is a Flutter utility library that provides a collection of custom widgets, extensions, animations, and utility functions. It is designed to simplify common tasks and improve the developer experience while building Flutter applications. Whether you're looking for easy-to-use animations, advanced navigation features, or helpful logging tools, `flutter_ex_kit` has got you covered.",
   "author": "",
   "license": "ISC",
